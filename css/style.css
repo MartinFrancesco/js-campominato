@@ -1,0 +1,26 @@
+/* GENERAL STYLE */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+
+/* TYPHOGRAPHY */
+h1 {
+  margin-bottom: 40px;
+  color: red;
+  text-transform: uppercase;
+}
+
+ol {
+  text-align: left;
+  margin: auto;
+}
+
+/* LAYOUT */
+.container {
+  text-align: center;
+  width: 800px;
+  margin: 50px auto;
+}
