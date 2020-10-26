@@ -1,22 +1,24 @@
 //ESERCIZIO CAMPO-MINATO
 //BONUS
 //Livello (POSSO METTERLI IN UNA FUNZIONE?!)
-var level = parseInt( prompt("Scegli il livello di difficoltà").trim() );
+var level = parseInt( prompt("Scegli il livello di difficoltà da 0 a 2").trim() );
 while (isNaN(level) || (level < 0) || (level > 2)) {
-  var guess = parseInt( prompt("Il numero deve essere tra 0 e 2!").trim() );
+  var level = parseInt( prompt("Il numero deve essere tra 0 e 2!").trim() );
 }
 
-switch (level) {
-  case 0:
-       attempts = 84;
-    break;
-  case 1:
-        attempts = 64;
-    break;
-  case 2:
-        attempts = 34;
-    break;
-}
+var attempts = 0;
+
+  switch (level) {
+     case 0:
+          attempts = 34;
+       break;
+     case 1:
+           attempts = 64;
+       break;
+     case 2:
+           attempts = 84;
+       break;
+  }
 
 //ESERCIZIO!
 //Il computer deve generare 16 numeri casuali (bombe) tra 1 e 100.
@@ -37,7 +39,6 @@ console.log(arrBombs);
 //L'utente non può inserire più volte lo stesso numero.
 //Se il numero è presente nella lista dei numeri generati (bombe), la partita termina, altrimenti si continua chiedendo all'utente un altro numero.
 //La partita termina quando il giocatore inserisce un numero "vietato" o raggiunge il numero massimo possibile di numeri consentiti.
-var attempts = 84;
 var games = [];
 
 for (var i = 0; i < attempts; i++) {
@@ -57,7 +58,7 @@ for (var i = 0; i < attempts; i++) {
   }
 }
 
-alert("HAI VINTO!");
+alert("HAI VINTO! con " + attempts + " tentativi raggiunti!");
 
 //DEFINIZIONE FUNZIONI
 //Generatore di bombe
