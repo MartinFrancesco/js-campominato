@@ -1,12 +1,32 @@
 //ESERCIZIO CAMPO-MINATO
+//BONUS
+//Livello (POSSO METTERLI IN UNA FUNZIONE?!)
+var level = parseInt( prompt("Scegli il livello di difficoltà").trim() );
+while (isNaN(level) || (level < 0) || (level > 2)) {
+  var guess = parseInt( prompt("Il numero deve essere tra 0 e 2!").trim() );
+}
+
+switch (level) {
+  case 0:
+       attempts = 84;
+    break;
+  case 1:
+        attempts = 64;
+    break;
+  case 2:
+        attempts = 34;
+    break;
+}
+
+//ESERCIZIO!
 //Il computer deve generare 16 numeri casuali (bombe) tra 1 e 100.
 //I numeri non possono essere duplicati
 var arrBombs = [];
 
-for (var i = 1; i < 100; i++) {
+for (var i = 1; i < 16; i++) {
   var bomb = bombGenerator();
 
-  if (bomb !== arrBombs[i]) {
+  if ( ! arrBombs.includes(bomb)) { //oppure potevo scrivere arrBombs.includes(bomb) === false;
     arrBombs.push(bomb);
   }
 }
@@ -25,7 +45,7 @@ for (var i = 0; i < attempts; i++) {
 
   //Condizioni e regole
   while (isNaN(guess) || (guess === 0) || (guess > 100) || (games.includes(guess))) {
-    var guess = parseInt( prompt("Non stai rispettando le regole! Riprova."));
+    var guess = parseInt( prompt("Non stai rispettando le regole! Riprova.").trim() );
   }
 
   if (! arrBombs.includes(guess)) {
@@ -33,7 +53,7 @@ for (var i = 0; i < attempts; i++) {
      console.log(games);
 
   } else {
-      alert("GAME OVER!");
+      alert("GAME OVER! Hai provato con successo " + games.length + "volte.");
   }
 }
 
@@ -49,7 +69,7 @@ function bombGenerator() {
 
 //Tentativi utente
 function guessUser() {
-  var x = parseInt( prompt("Inserisci un numero, tenta la fortuna!"));
+  var x = parseInt( prompt("Inserisci un numero, tenta la fortuna!").trim() );
 
   return x;
 }
